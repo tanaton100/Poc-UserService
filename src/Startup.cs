@@ -1,7 +1,5 @@
-using System;
 using AdvancedInfoService.Mimo.gitlabservice.Commons;
 using Autofac;
-using Autofac.Extensions.DependencyInjection;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
@@ -26,8 +24,8 @@ namespace POC_UserService
         public void ConfigureServices(IServiceCollection services)
         {
             
-            services.AddAppCors();
-            services.AddMvc(options => options.EnableEndpointRouting = false);
+           // services.AddAppCors();
+           // services.AddMvc(options => options.EnableEndpointRouting = false);
             services.AddControllersWithViews();
           
         }
@@ -59,10 +57,10 @@ namespace POC_UserService
 
             app.UseHttpsRedirection();
             app.UseStaticFiles();
-            app.UseCors("CorsPolicy");
+            //app.UseCors("CorsPolicy");
 
             app.UseRouting();
-            app.UseMvc();
+           // app.UseMvc();
             app.UseAuthorization();
 
             app.UseEndpoints(endpoints =>
