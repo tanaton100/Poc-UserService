@@ -62,10 +62,10 @@ namespace AdvancedInfoService.Mimo.gitlabservice.Commons
             });
         }
 
-        public static void UseAppCors(this IApplicationBuilder app)
-        {
-            app.UseCors("CorsPolicy");
-        }
+        //public static void UseAppCors(this IApplicationBuilder app)
+        //{
+        //    app.UseCors("CorsPolicy");
+        //}
 
         public static PageResult<T> ToPageResult<T>(this IEnumerable<T> models, int page, int perPage)
         {

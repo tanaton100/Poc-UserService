@@ -23,21 +23,24 @@ namespace POC_UserService
         public IConfiguration Configuration { get; }
 
         // This method gets called by the runtime. Use this method to add services to the container.
-        public IServiceProvider ConfigureServices(IServiceCollection services)
+        public void ConfigureServices(IServiceCollection services)
         {
+            
             services.AddAppCors();
-
+            services.AddMvc(options => options.EnableEndpointRouting = false);
             services.AddControllersWithViews();
-            var builder = new ContainerBuilder();
+          
+        }
+
+        public void ConfigureContainer(ContainerBuilder builder)
+        {
+
             builder.RegisterAssemblyTypes(typeof(Startup).Assembly)
                 .AsImplementedInterfaces();
-            builder.Populate(services);
             builder.AddMongo();
             builder.AddMongoRepository<User>("User");
 
 
-            Container = builder.Build();
-            return new AutofacServiceProvider(Container);
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -56,11 +59,11 @@ namespace POC_UserService
 
             app.UseHttpsRedirection();
             app.UseStaticFiles();
+            app.UseCors("CorsPolicy");
 
             app.UseRouting();
-
+            app.UseMvc();
             app.UseAuthorization();
-            app.UseCors("CorsPolicy");
 
             app.UseEndpoints(endpoints =>
             {
