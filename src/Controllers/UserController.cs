@@ -47,12 +47,12 @@ namespace POC_UserService.Controllers
         {
             try
             {
-              await  _userService.AddAsync(new User
+                await _userService.AddAsync(new User
                 {
                     FirstName = requestUserModel.FirstName,
                     LastName = requestUserModel.LastName,
-                    UserName=requestUserModel.UserName,
-                    Tel=requestUserModel.Tel
+                    UserName = requestUserModel.UserName,
+                    Tel = requestUserModel.Tel
                 });
                 return RedirectToAction(nameof(Index));
             }
@@ -63,18 +63,29 @@ namespace POC_UserService.Controllers
         }
 
         // GET: UserController/Edit/5
-        public ActionResult Edit(int id)
+        public async Task<IActionResult> Edit(string id)
         {
-            return View();
+            var result = await _userService.GetAsync(_ => _.Id == new ObjectId(id));
+
+            if (result != null)
+            {
+                return View(result);
+
+            }
+
+            return RedirectToAction(nameof(Index));
         }
 
         // POST: UserController/Edit/5
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit(int id, IFormCollection collection)
+        public async Task<IActionResult> Edit(string id, User input)
         {
             try
             {
+                input.Id = new ObjectId(id);
+
+                await _userService.UpdateAsync(input);
                 return RedirectToAction(nameof(Index));
             }
             catch
@@ -84,18 +95,22 @@ namespace POC_UserService.Controllers
         }
 
         // GET: UserController/Delete/5
-        public ActionResult Delete(int id)
+        public async Task<IActionResult> Delete(string id)
         {
-            return View();
+            var result = await _userService.GetAsync(_ => _.Id == new ObjectId(id));
+
+
+            return View(result);
         }
 
         // POST: UserController/Delete/5
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Delete(int id, IFormCollection collection)
+        public async Task<IActionResult> Delete(string id, User input)
         {
             try
             {
+                await _userService.DeleteAsync(_ => _.Id == new ObjectId(id));
                 return RedirectToAction(nameof(Index));
             }
             catch
