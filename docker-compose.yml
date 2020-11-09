@@ -1,6 +1,17 @@
 version: '3.1'
 
 services:
+  userservice:
+    build: .
+    ports: 
+      - "9000:80"
+    depends_on:
+      - mongo 
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development 
+    links:
+      - mongo
+
   mongo:
     image: mongo
     restart: always
@@ -11,9 +22,3 @@ services:
       - '27017:27017'
     volumes:
       - ./data/mongo:/data/db
-  userservice:
-    build: .
-    ports: 
-      - "9000:80"
-    depends_on:
-      - mongo 
