@@ -6,6 +6,8 @@ using MongoDB.Bson.IO;
 using POC_UserService.Models;
 using POC_UserService.Service;
 using System;
+using System.Collections.Generic;
+using System.Linq;
 using System.Threading.Tasks;
 
 namespace POC_UserService.Controllers
@@ -23,7 +25,8 @@ namespace POC_UserService.Controllers
         // GET: UserController
         public async Task<IActionResult> Index()
         {
-            return View(await _userService.FindAsync(_ => true));
+            var userlist = await _userService.FindAsync(_ => true);
+            return View(userlist.Any()? userlist:new List<User>());
         }
 
         // GET: UserController/Details/5

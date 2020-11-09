@@ -11,7 +11,9 @@ services:
       - '27017:27017'
     volumes:
       - ./data/mongo:/data/db
-  UserService:
+  userservice:
     build: .
     ports: 
-      - "9000:8080"    
+      - "9000:80"
+    depends_on:
+      - mongo 
