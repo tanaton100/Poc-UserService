@@ -1,6 +1,7 @@
 ﻿
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Logging;
 using MongoDB.Bson;
 using MongoDB.Bson.IO;
 using POC_UserService.Models;
@@ -16,17 +17,29 @@ namespace POC_UserService.Controllers
     public class UserController : Controller
     {
         private readonly IUserService _userService;
+        private readonly ILogger<UserController> _loggeruser;
 
-        public UserController(IUserService userService)
+
+        public UserController(IUserService userService, ILogger<UserController> loggeruser)
         {
             _userService = userService;
+            _loggeruser = loggeruser;
         }
 
         // GET: UserController
         public async Task<IActionResult> Index()
         {
-            var userlist = await _userService.FindAsync(_ => true);
-            return View(userlist.Any()? userlist:new List<User>());
+            try
+            {
+                var userlist = await _userService.FindAsync(_ => true);
+                return View(userlist.Any() ? userlist : new List<User>());
+            }
+            catch (Exception ex)
+            {
+                _loggeruser.LogError(ex, "Stopped program because of exception");
+                throw;
+            }
+          
         }
 
         // GET: UserController/Details/5

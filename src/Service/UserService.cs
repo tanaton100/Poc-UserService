@@ -1,4 +1,5 @@
-﻿using POC_UserService.Models;
+﻿using Microsoft.Extensions.Logging;
+using POC_UserService.Models;
 using POC_UserService.Repository;
 using System;
 using System.Collections.Generic;
