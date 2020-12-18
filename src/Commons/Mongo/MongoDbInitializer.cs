@@ -5,6 +5,7 @@ using MongoDB.Bson.Serialization;
 using MongoDB.Bson.Serialization.Conventions;
 using MongoDB.Bson.Serialization.Serializers;
 using MongoDB.Driver;
+using POC_UserService.Commons.Mongo;
 
 namespace AdvancedInfoService.Mimo.gitlabservice.Commons.Mongo
 {

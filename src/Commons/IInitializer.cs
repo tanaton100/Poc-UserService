@@ -1,6 +1,6 @@
 ﻿using System.Threading.Tasks;
 
-namespace AdvancedInfoService.Mimo.gitlabservice.Commons
+namespace POC_UserService.Commons
 {
     public interface IInitializer
     {

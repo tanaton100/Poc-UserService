@@ -1,7 +1,6 @@
 FROM mcr.microsoft.com/dotnet/core/aspnet:3.1 as runtime
 FROM mcr.microsoft.com/dotnet/core/sdk:3.1 as builder
 
-EXPOSE 5000
 WORKDIR /src
 COPY src/POC-UserService.csproj .
 RUN dotnet restore

@@ -39,7 +39,7 @@ namespace POC_UserService.Controllers
                 _loggeruser.LogError(ex, "Stopped program because of exception");
                 throw;
             }
-          
+
         }
 
         // GET: UserController/Details/5
@@ -70,6 +70,7 @@ namespace POC_UserService.Controllers
                     UserName = requestUserModel.UserName,
                     Tel = requestUserModel.Tel
                 });
+
                 return RedirectToAction(nameof(Index));
             }
             catch

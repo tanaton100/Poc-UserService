@@ -6,7 +6,7 @@ using AdvancedInfoService.Mimo.GitLabService.Commons.Types;
 using MongoDB.Driver;
 using MongoDB.Driver.Linq;
 
-namespace AdvancedInfoService.Mimo.gitlabservice.Commons.Mongo
+namespace POC_UserService.Commons.Mongo
 {
     public class MongoRepository<TEntity> : IMongoRepository<TEntity> where TEntity : IIdentifiable
     {
