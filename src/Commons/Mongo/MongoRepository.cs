@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using AdvancedInfoService.Mimo.GitLabService.Commons.Types;
 using MongoDB.Driver;
 using MongoDB.Driver.Linq;
+using POC_UserService.Commons.Mongo;
 
 namespace AdvancedInfoService.Mimo.gitlabservice.Commons.Mongo
 {

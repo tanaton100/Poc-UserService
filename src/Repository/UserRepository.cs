@@ -1,8 +1,7 @@
-﻿using AdvancedInfoService.Mimo.gitlabservice.Commons.Mongo;
+﻿using POC_UserService.Commons.Mongo;
 using POC_UserService.Models;
 using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Linq.Expressions;
 using System.Threading.Tasks;
 

@@ -4,7 +4,7 @@ using System.Linq.Expressions;
 using System.Threading.Tasks;
 using AdvancedInfoService.Mimo.GitLabService.Commons.Types;
 
-namespace AdvancedInfoService.Mimo.gitlabservice.Commons.Mongo
+namespace POC_UserService.Commons.Mongo
 {
     public interface IMongoRepository<TEntity> where TEntity : IIdentifiable
     {

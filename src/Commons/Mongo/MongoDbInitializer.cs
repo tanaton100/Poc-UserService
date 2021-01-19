@@ -1,12 +1,13 @@
 ﻿using System.Collections.Generic;
 using System.Threading.Tasks;
+using AdvancedInfoService.Mimo.gitlabservice.Commons.Mongo;
 using MongoDB.Bson;
 using MongoDB.Bson.Serialization;
 using MongoDB.Bson.Serialization.Conventions;
 using MongoDB.Bson.Serialization.Serializers;
 using MongoDB.Driver;
 
-namespace AdvancedInfoService.Mimo.gitlabservice.Commons.Mongo
+namespace POC_UserService.Commons.Mongo
 {
     public class MongoDbInitializer : IMongoDbInitializer
     {
