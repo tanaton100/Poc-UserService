@@ -177,4 +177,4 @@ strategy-service
 src/bin/Debug/*
 src/obj/Debug/*
 src/obj/*
-*data
+data*/
