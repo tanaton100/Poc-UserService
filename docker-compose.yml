@@ -9,8 +9,6 @@ services:
       - mongo 
     environment:
       - ASPNETCORE_ENVIRONMENT=Development 
-    links:
-      - mongo
 
   mongo:
     image: mongo

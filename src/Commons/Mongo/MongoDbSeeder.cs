@@ -1,6 +1,7 @@
 ﻿using System.Linq;
 using System.Threading.Tasks;
 using MongoDB.Driver;
+using POC_UserService.Commons.Mongo;
 
 namespace AdvancedInfoService.Mimo.gitlabservice.Commons.Mongo
 {

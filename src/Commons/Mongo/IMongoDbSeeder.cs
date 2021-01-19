@@ -1,6 +1,6 @@
 ﻿using System.Threading.Tasks;
 
-namespace AdvancedInfoService.Mimo.gitlabservice.Commons.Mongo
+namespace POC_UserService.Commons.Mongo
 {
     public interface IMongoDbSeeder
     {

@@ -7,7 +7,7 @@ using MongoDB.Driver;
 using MongoDB.Driver.Linq;
 using POC_UserService.Commons.Mongo;
 
-namespace AdvancedInfoService.Mimo.gitlabservice.Commons.Mongo
+namespace POC_UserService.Commons.Mongo
 {
     public class MongoRepository<TEntity> : IMongoRepository<TEntity> where TEntity : IIdentifiable
     {
